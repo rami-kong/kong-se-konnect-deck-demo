@@ -24,8 +24,4 @@ on:
                 deck-version: '1.29.2'
                 wrapper: false
             - name: deck sync
-            run: |
-                deck sync --select-tag investment \
-                    -s config/kong/kong.yaml \
-                    --konnect-control-plane-name default \
-                    --konnect-token ${{ secrets.KONNECT_PAT }}
+            run: deck sync --select-tag investment -s config/kong/kong.yaml --konnect-control-plane-name default --konnect-token ${{ secrets.KONNECT_PAT }}
