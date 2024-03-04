@@ -3,29 +3,19 @@ name: Deploy Kong changes to Konnect
 on:
   push:
     branches:
-      - master
+    - master
     paths:
-      - config/kong/kong.yaml
-      - .github/workflows/main.yaml
-
+    - config/kong/kong.yaml
+    - .github/workflows/main.yaml
+    paths-ignore:
+    - README.md 
 
     jobs:
-
-    #  this job is useful to debug workflows, see https://github.com/mheap/debug-artifact
-    #  debug-artifacts:
-    #    name: Upload Debug Artifacts
-    #    runs-on: ubuntu-latest
-    #    steps:
-    #      - name: Upload Debug Artifacts
-    #        uses: mheap/debug-artifact@v1
-    #        env:
-    #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+        environment: demo
         deploy-kong:
-        name: Deploy Kong to PRD
-        runs-on: ubuntu-latest
-    
-        steps:
+            name: Deploy Kong to Konnect
+            runs-on: ubuntu-latest
+            steps:
             - name: Checkout
             uses: actions/checkout@v3
             - name: Setup deck
@@ -33,7 +23,6 @@ on:
             with:
                 deck-version: '1.29.2'
                 wrapper: false
-    
             - name: deck sync
             run: |
                 deck sync --select-tag investment \
