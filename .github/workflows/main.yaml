@@ -11,17 +11,18 @@ on:
     - README.md 
 
 jobs:
-    deploy-kong:
-        name: Deploy Kong to Konnect
-        runs-on: ubuntu-latest
-        environment: demo
-        steps:
-        - name: Checkout
-        uses: actions/checkout@v3
-        - name: Setup deck
-        uses: kong/setup-deck@v1
-        with:
-            deck-version: '1.29.2'
-            wrapper: false
-        - name: deck sync
-        run: deck sync --select-tag investment -s config/kong/kong.yaml --konnect-control-plane-name default --konnect-token ${{ secrets.KONNECT_PAT }}
+  deploy_to_konnect:
+    runs-on: ubuntu-latest
+    name: Deploy Kong to Konnect
+    environment: demo
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.5.0
+    - name: Setup deck
+      uses: kong/setup-deck@v1
+      with:
+        deck-version: '1.29.2'
+        wrapper: false
+    - name: deck sync
+      run: deck sync --select-tag investment -s config/kong/kong.yaml --konnect-control-plane-name default --konnect-token ${{ secrets.KONNECT_PAT }}
+    
