@@ -22,5 +22,5 @@ jobs:
         deck-version: '1.29.2'
         wrapper: false
     - name: deck sync
-      run: deck sync --select-tag investment -s config/kong/kong.yaml --konnect-control-plane-name default --konnect-token ${{ secrets.KONNECT_PAT }}
+      run: deck gateway sync --select-tag investment config/kong/kong.yaml --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-robinhcer --konnect-token ${{ secrets.KONNECT_PAT }}
     
