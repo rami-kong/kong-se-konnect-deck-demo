@@ -10,7 +10,7 @@ services:
   enabled: true
   host: mocktainer.io
   name: InvestmentDemoSvc
-  path: /portfolio/v1
+  path: /orders
   port: 80
   protocol: http
   read_timeout: 60000
