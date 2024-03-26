@@ -11,4 +11,4 @@ For this set-up, we will only apply changes to a default control plane
 KONNECT_PAT: ${{ secrets.KONNECT_PAT }}
 ```
 
-You will need to retrive a System Access / Personal Access Token from Konnect Control Plane before you are able to run the ci/cd job
+You will need to retrive a System Access / Personal Access Token from Konnect Control Plane before you are able to run the ci/cd job. 
