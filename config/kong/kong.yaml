@@ -4,12 +4,12 @@ _info:
   select_tags:
   - investment
 _konnect:
-  control_plane_name: default
+  control_plane_name: se-demo-robincher
 services:
 - connect_timeout: 60000
   enabled: true
   host: mocktainer.io
-  name: InvestmentSvc
+  name: InvestmentMock
   path: /portfolio/v1
   port: 80
   protocol: http
