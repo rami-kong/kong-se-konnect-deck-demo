@@ -24,6 +24,9 @@ jobs:
     - run: deck version
       id: deck_version
     - run: echo '${{ toJson(steps.deck_version.outputs) }}'
+    - name: Add User-Defined Kong Rate Limiting Plugin
+      run: |
+        deck file add-plugins -s kong.yaml -o kong.yaml ./config/kong/plugins/*
     - name: deck sync
       run: deck gateway sync --select-tag gitops config/kong/kong.yaml --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-rc-apiops --konnect-token ${{ secrets.KONNECT_PAT }}
     
