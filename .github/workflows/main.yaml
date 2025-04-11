@@ -19,8 +19,11 @@ jobs:
     - name: Setup deck
       uses: kong/setup-deck@v1
       with:
-        deck-version: '1.29.2'
-        wrapper: false
+        deck-version: 'v1.42.1'
+        wrapper: true
+    - run: deck version
+      id: deck_version
+    - run: echo '${{ toJson(steps.deck_version.outputs) }}'
     - name: deck sync
-      run: deck gateway sync --select-tag investment config/kong/kong.yaml --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-robincher --konnect-token ${{ secrets.KONNECT_PAT }}
+      run: deck gateway sync --select-tag gitops config/kong/kong.yaml --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-rc-apiops --konnect-token ${{ secrets.KONNECT_PAT }}
     
