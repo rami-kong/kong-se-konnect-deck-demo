@@ -28,5 +28,5 @@ jobs:
       run: |
         deck file add-plugins -s ./config/kong/kong.yaml -o kong.yaml ./config/kong/plugins/*
     - name: deck sync
-      run: deck gateway sync kong.yaml --select-tag gitops --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-rc-apiops --konnect-token $KONNECT_PAT
+      run: deck gateway sync kong.yaml --select-tag gitops --konnect-addr https://au.api.konghq.com --konnect-control-plane-name se-demo-rc-apiops --konnect-token ${{ secrets.KONNECT_PAT }}
     
