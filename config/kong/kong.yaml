@@ -8,7 +8,7 @@ services:
 - connect_timeout: 60000
   enabled: true
   host: jsonplaceholder.typicode.com
-  name: JSONPlaceHolderDemoServiceSVC3
+  name: JSONPlaceHolderDemoServiceSVC4
   path: /
   port: 443
   protocol: https
